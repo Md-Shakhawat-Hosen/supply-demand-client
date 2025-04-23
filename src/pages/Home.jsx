@@ -15,6 +15,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { Helmet } from "react-helmet";
 
 // Sample dummy data for charts (you can later replace it with real data)
 const cornData = [
@@ -66,6 +67,9 @@ const Home = () => {
 
   return (
     <div className="bg-[#27391C] text-white min-h-screen">
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       {/* Banner Carousel */}
       <section className="bg-[#18230F]">
         <Carousel

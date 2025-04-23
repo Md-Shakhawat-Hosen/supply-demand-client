@@ -17,6 +17,7 @@ import {
   TrendingDown,
   DollarSign,
 } from "lucide-react";
+import { Helmet } from "react-helmet";
 
 
 const priceTrendData = [
@@ -48,6 +49,9 @@ const Reports = () => {
 
   return (
     <div className="bg-[#27391C]">
+      <Helmet>
+        <title>Reports</title>
+      </Helmet>
       <div className=" max-w-7xl mx-auto min-h-screen text-white p-4 md:p-8">
         {/* Page Title */}
         <div className="mb-8">

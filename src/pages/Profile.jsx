@@ -1,6 +1,7 @@
 // src/pages/Profile.jsx
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
 
 const Profile = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -8,7 +9,7 @@ const Profile = () => {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
-
+ 
   return (
     <div className="bg-[#27391C]">
       <div className="max-w-7xl mx-auto min-h-screen flex">
@@ -28,6 +29,10 @@ const Profile = () => {
 
           {/* Profile Navigation Options */}
           <nav className="space-y-6">
+            
+            <Link to="/" className="block w-full text-left text-gray-300 hover:text-[#1F7D53] transition-all">
+             Home
+            </Link>
             <button className="block w-full text-left text-gray-300 hover:text-[#1F7D53] transition-all">
               My Information
             </button>

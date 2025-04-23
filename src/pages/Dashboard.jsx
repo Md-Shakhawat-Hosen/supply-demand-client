@@ -11,6 +11,7 @@ import {
   Bar,
 } from "recharts";
 import { Bell, Download } from "lucide-react";
+import { Helmet } from "react-helmet";
 
 const demandSupplyData = [
   { month: "Jan", demand: 400, supply: 420 },
@@ -29,6 +30,9 @@ const marketPrices = [
 const Dashboard = () => {
   return (
     <div className="bg-[#27391C]">
+      <Helmet>
+        <title>Dashboard</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto  min-h-screen text-white p-4 md:p-8">
         {/* Welcome */}
         <div className="mb-8">
