@@ -110,7 +110,7 @@ const Home = () => {
       <section className="py-10 px-4 max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
         {/* Left Content */}
         <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-[#1F7D53]">
+          <h2 className="text-3xl font-bold text-[#6cb996]">
             Empowering Farmers with Data
           </h2>
           <p className="text-gray-300">
@@ -139,7 +139,7 @@ const Home = () => {
               <div key={index} className="border-b border-[#1F7D53] pb-2">
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full flex justify-between items-center text-left text-lg font-semibold text-[#1F7D53] hover:text-[#1F7D53] focus:outline-none"
+                  className="w-full flex justify-between items-center text-left text-lg font-semibold text-[#6cb996] hover:text-[#1F7D53] focus:outline-none"
                 >
                   {faq.question}
                   {openIndex === index ? (
@@ -160,7 +160,7 @@ const Home = () => {
       {/* Featured Agricultural Historical Prices (Charts) */}
       <section className="py-12 px-4 bg-[#18230F]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#1F7D53] mb-8 text-center">
+          <h2 className="text-3xl font-bold text-[#6cb996] mb-8 text-center">
             Featured Agricultural Historical Prices & Trends
           </h2>
 
@@ -244,7 +244,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
           {/* Left Text Content */}
           <div>
-            <h2 className="text-3xl font-bold text-[#1F7D53] mb-6">
+            <h2 className="text-3xl font-bold text-[#6cb996] mb-6">
               Plan with Confidence
             </h2>
             <h3 className="text-xl font-semibold text-white mb-4">
@@ -272,7 +272,7 @@ const Home = () => {
           {/* Right Image */}
           <div>
             <img
-              src="/confidence.jpg"
+              src={img1}
               alt="Agriculture Planning"
               className="w-full rounded-xl shadow-lg object-cover h-80 md:h-[400px]"
             />

@@ -17,7 +17,7 @@ const Navbar = () => {
         onClick={() => setIsOpen(false)}
         className={({ isActive }) =>
           `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
-            isActive ? "text-[#1F7D53]" : "text-white hover:text-[#1F7D53]"
+            isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
           }`
         }
       >
@@ -28,7 +28,7 @@ const Navbar = () => {
         onClick={() => setIsOpen(false)}
         className={({ isActive }) =>
           `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
-            isActive ? "text-[#1F7D53]" : "text-white hover:text-[#1F7D53]"
+            isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
           }`
         }
       >
@@ -39,7 +39,7 @@ const Navbar = () => {
         onClick={() => setIsOpen(false)}
         className={({ isActive }) =>
           `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
-            isActive ? "text-[#1F7D53]" : "text-white hover:text-[#1F7D53]"
+            isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
           }`
         }
       >
@@ -50,7 +50,7 @@ const Navbar = () => {
         onClick={() => setIsOpen(false)}
         className={({ isActive }) =>
           `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
-            isActive ? "text-[#1F7D53]" : "text-white hover:text-[#1F7D53]"
+            isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
           }`
         }
       >
@@ -64,7 +64,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Link to="/" className="text-2xl font-bold text-[#1F7D53]">
+          <Link to="/" className="text-2xl font-bold text-white">
             AgriForecast
           </Link>
         </div>
