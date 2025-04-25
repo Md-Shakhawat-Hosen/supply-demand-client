@@ -7,6 +7,8 @@ import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import DataCollection from "./pages/DataCollection";
+import MarketRecommendations from "./pages/MarketRecommendations";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ export const router = createBrowserRouter([
       {
         path: "reports",
         element: <Reports />,
+      },
+      {
+        path: "data-collection",
+        element: <DataCollection />,
+      },
+      {
+        path: "market-recommendations",
+        element: <MarketRecommendations/>
       },
     ],
   },

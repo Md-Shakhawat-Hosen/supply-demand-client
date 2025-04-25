@@ -53,6 +53,28 @@ const Navbar = () => {
         Dashboard
       </NavLink>
       <NavLink
+        to="/data-collection"
+        onClick={() => setIsOpen(false)}
+        className={({ isActive }) =>
+          `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
+            isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
+          }`
+        }
+      >
+        Data Collection
+      </NavLink>
+      <NavLink
+        to="/market-recommendations"
+        onClick={() => setIsOpen(false)}
+        className={({ isActive }) =>
+          `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
+            isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
+          }`
+        }
+      >
+        Market Recommendations
+      </NavLink>
+      <NavLink
         to="/reports"
         onClick={() => setIsOpen(false)}
         className={({ isActive }) =>
