@@ -42,7 +42,7 @@ const Navbar = () => {
         Home
       </NavLink>
       <NavLink
-        to="/dashboard"
+        to="/public-ledger"
         onClick={() => setIsOpen(false)}
         className={({ isActive }) =>
           `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
@@ -50,53 +50,79 @@ const Navbar = () => {
           }`
         }
       >
-        Dashboard
+        Blockchain Ledger
       </NavLink>
-      <NavLink
-        to="/data-collection"
-        onClick={() => setIsOpen(false)}
-        className={({ isActive }) =>
-          `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
-            isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
-          }`
-        }
-      >
-        Data Collection
-      </NavLink>
-      <NavLink
-        to="/market-recommendations"
-        onClick={() => setIsOpen(false)}
-        className={({ isActive }) =>
-          `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
-            isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
-          }`
-        }
-      >
-        Market Recommendations
-      </NavLink>
-      <NavLink
-        to="/reports"
-        onClick={() => setIsOpen(false)}
-        className={({ isActive }) =>
-          `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
-            isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
-          }`
-        }
-      >
-        Reports
-      </NavLink>
+
       {users && (
-        <NavLink
-          to="/profile"
-          onClick={() => setIsOpen(false)}
-          className={({ isActive }) =>
-            `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
-              isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
-            }`
-          }
-        >
-          Profile
-        </NavLink>
+        <div>
+          <NavLink
+            to="/dashboard"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
+                isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
+              }`
+            }
+          >
+            Dashboard
+          </NavLink>
+          <NavLink
+            to="/data-collection"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
+                isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
+              }`
+            }
+          >
+            Data Collection
+          </NavLink>
+          <NavLink
+            to="/market-recommendations"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
+                isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
+              }`
+            }
+          >
+            Market Recommendations
+          </NavLink>
+          <NavLink
+            to="/blockchain-ledger"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
+                isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
+              }`
+            }
+          >
+            Blockchain Ledger
+          </NavLink>
+          <NavLink
+            to="/reports"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
+                isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
+              }`
+            }
+          >
+            Reports
+          </NavLink>
+
+          <NavLink
+            to="/profile"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block py-2 md:inline-block md:py-0 px-3 text-sm font-medium ${
+                isActive ? "text-[#6cb996]" : "text-white hover:text-[#6cb996]"
+              }`
+            }
+          >
+            Profile
+          </NavLink>
+        </div>
       )}
     </>
   );

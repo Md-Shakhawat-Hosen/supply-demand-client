@@ -9,6 +9,8 @@ import Login from "./pages/Login";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import DataCollection from "./pages/DataCollection";
 import MarketRecommendations from "./pages/MarketRecommendations";
+import BlockchainLedger from "./pages/BlockchainLedger";
+import PublicLedger from "./pages/PublicLedger";
 
 export const router = createBrowserRouter([
   {
@@ -29,15 +31,39 @@ export const router = createBrowserRouter([
       },
       {
         path: "reports",
-        element: <Reports />,
+        element: (
+          <PrivateRoute>
+            <Reports />
+          </PrivateRoute>
+        ),
       },
       {
         path: "data-collection",
-        element: <DataCollection />,
+        element: (
+          <PrivateRoute>
+            <DataCollection />
+          </PrivateRoute>
+        ),
       },
       {
         path: "market-recommendations",
-        element: <MarketRecommendations/>
+        element: (
+          <PrivateRoute>
+            <MarketRecommendations />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "blockchain-ledger",
+        element: (
+          <PrivateRoute>
+            <BlockchainLedger />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "public-ledger",
+        element: <PublicLedger/>
       },
     ],
   },
