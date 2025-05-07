@@ -97,7 +97,7 @@ const Navbar = () => {
               }`
             }
           >
-            Blockchain Ledger
+            Public Ledger
           </NavLink>
           <NavLink
             to="/reports"
