@@ -50,7 +50,7 @@ const Navbar = () => {
           }`
         }
       >
-        Blockchain Ledger
+        ForestWatch Ledger
       </NavLink>
 
       {users && (
@@ -86,7 +86,7 @@ const Navbar = () => {
               }`
             }
           >
-            Market Recommendations
+            Forest Health & Monitoring
           </NavLink>
           <NavLink
             to="/blockchain-ledger"
@@ -143,7 +143,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link to="/" className="text-2xl font-bold text-white">
-            AgriForecast
+            ForestWatch
           </Link>
         </div>
 
@@ -152,8 +152,6 @@ const Navbar = () => {
           {menuItems}
           {users ? (
             <div>
-             
-
               <div
                 className="relative inline-block text-left"
                 onMouseEnter={() => setIsHovered(true)}
@@ -161,7 +159,7 @@ const Navbar = () => {
               >
                 {/* Profile Image */}
                 <img
-                  src={users?.photoURL || `${user.avatar}`} 
+                  src={users?.photoURL || `${user.avatar}`}
                   alt="Profile"
                   className="w-10 h-10 rounded-full border-2 border-white cursor-pointer"
                 />
@@ -170,7 +168,9 @@ const Navbar = () => {
                 {isHovered && (
                   <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg z-50 p-4 space-y-2 text-[#27391C]">
                     <div>
-                      <p className="text-sm font-semibold">{users?.displayName}</p>
+                      <p className="text-sm font-semibold">
+                        {users?.displayName}
+                      </p>
                       <p className="text-xs text-gray-600">{users?.email}</p>
                     </div>
                     <button

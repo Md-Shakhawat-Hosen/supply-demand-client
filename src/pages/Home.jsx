@@ -1,12 +1,13 @@
+
 // src/pages/Home.jsx
 import { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import img1 from "../assets/images/agri-01.jpg"
-import img2 from "../assets/images/agri-02.jpg"
-import img3 from "../assets/images/agri-03.jpg"
-import img4 from "../assets/images/agri-04.jpg"
+import forest1 from "../assets/images/forest-01.jpg";
+import forest2 from "../assets/images/forest-02.jpg";
+import forest3 from "../assets/images/forest-03.jpg";
+import forest4 from "../assets/images/forest-04.jpg";
 import {
   LineChart,
   Line,
@@ -17,44 +18,44 @@ import {
 } from "recharts";
 import { Helmet } from "react-helmet";
 
-// Sample dummy data for charts (you can later replace it with real data)
-const cornData = [
-  { month: "Jan", price: 120 },
-  { month: "Feb", price: 130 },
-  { month: "Mar", price: 125 },
-  { month: "Apr", price: 140 },
+// Sample dummy data for charts (replace later with live stats)
+const plantationData = [
+  { month: "Jan", trees: 200 },
+  { month: "Feb", trees: 350 },
+  { month: "Mar", trees: 500 },
+  { month: "Apr", trees: 800 },
 ];
 
-const soybeanOilData = [
-  { month: "Jan", price: 100 },
-  { month: "Feb", price: 110 },
-  { month: "Mar", price: 105 },
-  { month: "Apr", price: 115 },
+const survivalRateData = [
+  { month: "Jan", rate: 85 },
+  { month: "Feb", rate: 87 },
+  { month: "Mar", rate: 89 },
+  { month: "Apr", rate: 92 },
 ];
 
-const rapeseedOilData = [
-  { month: "Jan", price: 90 },
-  { month: "Feb", price: 95 },
-  { month: "Mar", price: 92 },
-  { month: "Apr", price: 98 },
+const co2OffsetData = [
+  { month: "Jan", co2: 1.2 },
+  { month: "Feb", co2: 2.4 },
+  { month: "Mar", co2: 3.1 },
+  { month: "Apr", co2: 4.5 },
 ];
 
 // FAQ content
 const faqs = [
   {
-    question: "How does AgriForecast help farmers?",
+    question: "How does the system monitor reforestation?",
     answer:
-      "It predicts supply-demand trends, helping farmers plan production and maximize profits.",
+      "We use satellite imagery, drone mapping, and on-ground surveys to track tree growth, survival rates, and forest health.",
   },
   {
-    question: "Which products are covered in forecasts?",
+    question: "Can it track individual projects?",
     answer:
-      "The system covers grains, vegetables, fruits, and cash crops based on market and weather data.",
+      "Yes, every project has GPS-based location tracking, growth analytics, and carbon offset estimation.",
   },
   {
-    question: "How accurate are the demand predictions?",
+    question: "Who can use this system?",
     answer:
-      "We use real-time data, historical trends, and weather forecasts to provide reliable predictions.",
+      "It’s designed for government agencies, NGOs, environmental groups, and corporate CSR programs.",
   },
 ];
 
@@ -66,84 +67,64 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-[#27391C] text-white min-h-screen">
+    <div className="bg-[#102418] text-white min-h-screen">
       <Helmet>
-        <title>Home</title>
+        <title>Reforestation Monitoring</title>
       </Helmet>
+
       {/* Banner Carousel */}
-      <section className="bg-[#18230F]">
+      <section className="bg-[#0B1A12]">
         <Carousel
           autoPlay
           infiniteLoop
           showThumbs={false}
           showStatus={false}
-          interval={2000}
+          interval={2500}
         >
-          <div>
-            <img
-              src={img1}
-              alt="Agriculture Banner 1"
-              className="object-cover h-64 md:h-[400px] w-full"
-            />
-          </div>
-          <div>
-            <img
-              src={img2}
-              alt="Agriculture Banner 2"
-              className="object-cover h-64 md:h-[400px] w-full"
-            />
-          </div>
-          <div>
-            <img
-              src={img3}
-              alt="Agriculture Banner 3"
-              className="object-cover h-64 md:h-[400px] w-full"
-            />
-          </div>
-          <div>
-            <img
-              src={img4}
-              alt="Agriculture Banner 3"
-              className="object-cover h-64 md:h-[400px] w-full"
-            />
-          </div>
+          {[forest1, forest2, forest3, forest4].map((img, i) => (
+            <div key={i}>
+              <img
+                src={img}
+                alt={`Forest Banner ${i + 1}`}
+                className="object-cover h-64 md:h-[400px] w-full"
+              />
+            </div>
+          ))}
         </Carousel>
       </section>
 
-      {/* Empowering Farmers + FAQ Section */}
+      {/* Empowering Communities + FAQ */}
       <section className="py-10 px-4 max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
         {/* Left Content */}
         <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-[#6cb996]">
-            Empowering Farmers with Data
+          <h2 className="text-3xl font-bold text-green-400">
+            Restoring Forests, Protecting the Future
           </h2>
           <p className="text-gray-300">
-            AgriForecast provides powerful insights by combining market data,
-            weather forecasts, and historical trends. Farmers and traders can
-            now plan smarter, minimize wastage, and maximize their profits.
+            Our Reforestation Monitoring System combines modern technology with
+            local action to track, analyze, and enhance reforestation efforts
+            worldwide.
           </p>
           <ul className="list-disc list-inside text-gray-300 space-y-2">
-            <li>Accurate Demand-Supply Predictions</li>
-            <li>Real-Time Market Monitoring</li>
-            <li>Smart Pricing Strategies</li>
-            <li>Scenario Simulation for Climate Impacts</li>
+            <li>Satellite & Drone-based Monitoring</li>
+            <li>Tree Growth & Health Analytics</li>
+            <li>Carbon Offset Measurement</li>
+            <li>Community Participation Tracking</li>
           </ul>
-          <button className="bg-[#1F7D53] hover:bg-[#18230F] text-white px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300">
+          <button className="bg-green-700 hover:bg-green-900 text-white px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300">
             Learn More
           </button>
         </div>
 
-        {/* Right Content (FAQ Accordion) */}
-        <div className="bg-[#255F38] rounded-2xl p-6 shadow-lg">
-          <h3 className="text-2xl font-bold mb-4">
-            Frequently Asked Questions
-          </h3>
+        {/* Right Content (FAQ) */}
+        <div className="bg-[#184E32] rounded-2xl p-6 shadow-lg">
+          <h3 className="text-2xl font-bold mb-4">Frequently Asked Questions</h3>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="border-b border-[#1F7D53] pb-2">
+              <div key={index} className="border-b border-green-700 pb-2">
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full flex justify-between items-center text-left text-lg font-semibold text-[#6cb996] hover:text-[#1F7D53] focus:outline-none"
+                  className="w-full flex justify-between items-center text-left text-lg font-semibold text-green-300 hover:text-green-500"
                 >
                   {faq.question}
                   {openIndex === index ? (
@@ -161,34 +142,34 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Agricultural Historical Prices (Charts) */}
-      <section className="py-12 px-4 bg-[#18230F]">
+      {/* Project Progress Charts */}
+      <section className="py-12 px-4 bg-[#0B1A12]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#6cb996] mb-8 text-center">
-            Featured Agricultural Historical Prices & Trends
+          <h2 className="text-3xl font-bold text-green-400 mb-8 text-center">
+            Reforestation Progress & Impact
           </h2>
-
           <p className="text-center max-w-2xl mx-auto text-gray-300 mb-12">
-            Our forecasts for grains, oilseeds, animal fats, and oils are backed
-            by IOSCO-approved price reporting services, ensuring accuracy and
-            reliability.
+            Live tracking of plantation numbers, survival rates, and CO₂
+            absorption to measure the real impact of our initiatives.
           </p>
 
           {/* Charts */}
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {/* Corn */}
-            <div className="bg-[#255F38] p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
-              <h3 className="text-xl font-bold text-[#1F7D53] mb-4">Corn</h3>
+            {/* Plantation Count */}
+            <div className="bg-[#184E32] p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
+              <h3 className="text-xl font-bold text-green-300 mb-4">
+                Trees Planted
+              </h3>
               <div className="h-48">
                 <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={cornData}>
+                  <LineChart data={plantationData}>
                     <XAxis dataKey="month" stroke="#ccc" />
                     <YAxis stroke="#ccc" />
                     <Tooltip />
                     <Line
                       type="monotone"
-                      dataKey="price"
-                      stroke="#1F7D53"
+                      dataKey="trees"
+                      stroke="#22C55E"
                       strokeWidth={2}
                     />
                   </LineChart>
@@ -196,21 +177,21 @@ const Home = () => {
               </div>
             </div>
 
-            {/* RBD Soybean Oil */}
-            <div className="bg-[#255F38] p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
-              <h3 className="text-xl font-bold text-[#1F7D53] mb-4">
-                RBD Soybean Oil
+            {/* Survival Rate */}
+            <div className="bg-[#184E32] p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
+              <h3 className="text-xl font-bold text-green-300 mb-4">
+                Survival Rate (%)
               </h3>
               <div className="h-48">
                 <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={soybeanOilData}>
+                  <LineChart data={survivalRateData}>
                     <XAxis dataKey="month" stroke="#ccc" />
                     <YAxis stroke="#ccc" />
                     <Tooltip />
                     <Line
                       type="monotone"
-                      dataKey="price"
-                      stroke="#1F7D53"
+                      dataKey="rate"
+                      stroke="#22C55E"
                       strokeWidth={2}
                     />
                   </LineChart>
@@ -218,21 +199,21 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Rapeseed Oil */}
-            <div className="bg-[#255F38] p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
-              <h3 className="text-xl font-bold text-[#1F7D53] mb-4">
-                Rapeseed Oil
+            {/* CO₂ Offset */}
+            <div className="bg-[#184E32] p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
+              <h3 className="text-xl font-bold text-green-300 mb-4">
+                CO₂ Offset (tons)
               </h3>
               <div className="h-48">
                 <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={rapeseedOilData}>
+                  <LineChart data={co2OffsetData}>
                     <XAxis dataKey="month" stroke="#ccc" />
                     <YAxis stroke="#ccc" />
                     <Tooltip />
                     <Line
                       type="monotone"
-                      dataKey="price"
-                      stroke="#1F7D53"
+                      dataKey="co2"
+                      stroke="#22C55E"
                       strokeWidth={2}
                     />
                   </LineChart>
@@ -243,41 +224,40 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Plan with Confidence Section */}
-      <section className="py-16 px-4 bg-[#27391C]">
+      {/* Call to Action */}
+      <section className="py-16 px-4 bg-[#102418]">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-          {/* Left Text Content */}
+          {/* Left Text */}
           <div>
-            <h2 className="text-3xl font-bold text-[#6cb996] mb-6">
-              Plan with Confidence
+            <h2 className="text-3xl font-bold text-green-400 mb-6">
+              Plan, Monitor & Protect
             </h2>
             <h3 className="text-xl font-semibold text-white mb-4">
-              What makes our forecasts better?
+              Why our monitoring system stands out?
             </h3>
             <p className="text-gray-300 mb-4">
-              Our unique history of 150+ years in the agriculture space has
-              allowed us to amass data and experience on agricultural
-              commodities that are unrivaled.
+              Combining real-time monitoring, data analytics, and community
+              engagement, we ensure every tree planted is a step toward a
+              sustainable future.
             </p>
             <p className="text-gray-300 mb-4">
-              All our data feeds into an augmented intelligence platform where
-              forecasting is created, measured for accuracy, and refined. We
-              have no market positions, ensuring neutrality.
+              Our AI-driven analytics predict growth patterns and detect threats
+              early, maximizing forest survival.
             </p>
             <p className="text-gray-300 mb-6">
-              We openly share our forecast history to refine our predictive
-              abilities and maintain transparency.
+              We partner with local communities to ensure long-term care and
+              benefits from the forests.
             </p>
-            <button className="bg-[#1F7D53] hover:bg-[#18230F] text-white px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300">
-              Schedule a Demo
+            <button className="bg-green-700 hover:bg-green-900 text-white px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300">
+              Start a Project
             </button>
           </div>
 
           {/* Right Image */}
           <div>
             <img
-              src={img1}
-              alt="Agriculture Planning"
+              src={forest1}
+              alt="Reforestation Planning"
               className="w-full rounded-xl shadow-lg object-cover h-80 md:h-[400px]"
             />
           </div>

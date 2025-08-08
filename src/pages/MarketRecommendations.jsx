@@ -1,127 +1,124 @@
 import { useState } from "react";
 import {
-  TrendingUp,
-  DollarSign,
-  PackageSearch,
+  Trees,
+  AlertTriangle,
+  Droplets,
   MapPin,
-  BarChart3,
+  Leaf,
+  Activity,
 } from "lucide-react";
 
 const mockData = {
-  farmer: {
-    crop: "Tomato",
-    region: "Nashik",
-    currentMarketPrice: "₹30/kg",
-    suggestedPrice: "₹28/kg",
-    inventoryStatus: "Low",
-    recommendation: "Increase supply to meet rising demand in nearby mandis.",
-    marketTrend: "↑ Prices rising due to festive demand and low stock.",
-    demandLevel: "High",
+  ranger: {
+    forestZone: "Sundarbans East",
+    dominantSpecies: "Mangrove",
+    waterLevel: "Moderate",
+    fireRisk: "Low",
+    wildlifeActivity: "Normal",
+    recommendation: "Continue patrolling; monitor mangrove density growth.",
+    ecosystemTrend: "↑ Healthy regeneration observed this month.",
+    alertLevel: "Low",
   },
-  retailer: {
-    product: "Potato",
-    region: "Delhi NCR",
-    currentMarketPrice: "₹32/kg",
-    suggestedSellingPrice: "₹35/kg",
-    currentStock: "Adequate",
+  researcher: {
+    forestZone: "Kaziranga North",
+    dominantSpecies: "Sal Trees",
+    waterLevel: "Low",
+    fireRisk: "Medium",
+    wildlifeActivity: "Increased Rhino movement",
     recommendation:
-      "Maintain current pricing. Consider stocking onions next week.",
-    marketTrend: "→ Stable with slight weekend demand spike.",
-    demandLevel: "Medium",
+      "Deploy water conservation measures; monitor for early fire signs.",
+    ecosystemTrend: "→ Stable biodiversity but risk from dry season.",
+    alertLevel: "Medium",
   },
 };
 
-const MarketRecommendations = () => {
-  const [userType, setUserType] = useState("farmer");
+const ForestInsights = () => {
+  const [userType, setUserType] = useState("ranger");
   const data = mockData[userType];
 
   return (
     <div className="bg-[#27391C]">
       <div className="px-4 py-6 sm:px-6 lg:px-12 max-w-6xl mx-auto space-y-8 bg-[#18230F] min-h-screen text-white">
-        <h1 className="text-2xl font-bold">Market & Price Recommendations</h1>
+        <h1 className="text-2xl font-bold">Forest Health & Monitoring</h1>
 
         {/* Selector */}
         <div className="max-w-xs">
           <label className="block mb-2 font-semibold text-sm">
-            Select User Type
+            Select User Role
           </label>
           <select
             className="w-full border p-2 rounded text-green-500"
             value={userType}
             onChange={(e) => setUserType(e.target.value)}
           >
-            <option value="farmer ">Farmer</option>
-            <option value="retailer">Retailer</option>
+            <option value="ranger">Forest Ranger</option>
+            <option value="researcher">Researcher</option>
           </select>
         </div>
 
         {/* Cards Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {/* Product */}
-          <div className="bg-[#27391C] p-4 rounded shadow space-y-1">
-            <h2 className="font-semibold text-[#1F7D53]">Product</h2>
-            <p>{data.crop || data.product}</p>
-          </div>
-
-          {/* Region */}
           <div className="bg-[#27391C] p-4 rounded shadow space-y-1">
             <h2 className="font-semibold text-[#1F7D53] flex items-center gap-1">
-              <MapPin className="w-4 h-4" /> Region
+              <MapPin className="w-4 h-4" /> Forest Zone
             </h2>
-            <p>{data.region}</p>
+            <p>{data.forestZone}</p>
           </div>
 
-          {/* Current Market Price */}
-          <div className="bg-[#27391C] p-4 rounded shadow space-y-1">
-            <h2 className="font-semibold text-[#1F7D53]">
-              Current Market Price
-            </h2>
-            <p>{data.currentMarketPrice}</p>
-          </div>
-
-          {/* Suggested Price */}
           <div className="bg-[#27391C] p-4 rounded shadow space-y-1">
             <h2 className="font-semibold text-[#1F7D53] flex items-center gap-1">
-              <DollarSign className="w-4 h-4" /> Suggested Price
+              <Trees className="w-4 h-4" /> Dominant Species
             </h2>
-            <p>{data.suggestedPrice || data.suggestedSellingPrice}</p>
+            <p>{data.dominantSpecies}</p>
           </div>
 
-          {/* Inventory / Stock */}
           <div className="bg-[#27391C] p-4 rounded shadow space-y-1">
             <h2 className="font-semibold text-[#1F7D53] flex items-center gap-1">
-              <PackageSearch className="w-4 h-4" /> Inventory Status
+              <Droplets className="w-4 h-4" /> Water Level
             </h2>
-            <p>{data.inventoryStatus || data.currentStock}</p>
+            <p>{data.waterLevel}</p>
           </div>
 
-          {/* Demand Level */}
           <div className="bg-[#27391C] p-4 rounded shadow space-y-1">
             <h2 className="font-semibold text-[#1F7D53] flex items-center gap-1">
-              <BarChart3 className="w-4 h-4" /> Demand Level
+              <AlertTriangle className="w-4 h-4" /> Fire Risk
             </h2>
-            <p>{data.demandLevel}</p>
+            <p>{data.fireRisk}</p>
+          </div>
+
+          <div className="bg-[#27391C] p-4 rounded shadow space-y-1">
+            <h2 className="font-semibold text-[#1F7D53] flex items-center gap-1">
+              <Activity className="w-4 h-4" /> Wildlife Activity
+            </h2>
+            <p>{data.wildlifeActivity}</p>
+          </div>
+
+          <div className="bg-[#27391C] p-4 rounded shadow space-y-1">
+            <h2 className="font-semibold text-[#1F7D53] flex items-center gap-1">
+              <Leaf className="w-4 h-4" /> Alert Level
+            </h2>
+            <p>{data.alertLevel}</p>
           </div>
         </div>
 
         {/* AI Recommendation */}
         <div className="bg-[#255F38] p-6 rounded shadow">
           <h2 className="text-lg font-semibold text-white mb-2">
-            Recommendation
+            Conservation Recommendation
           </h2>
           <p>{data.recommendation}</p>
         </div>
 
-        {/* Market Analysis */}
+        {/* Ecosystem Analysis */}
         <div className="bg-[#255F38] p-6 rounded shadow">
           <h2 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
-            <TrendingUp className="w-5 h-5" /> Market Trend
+            <Leaf className="w-5 h-5" /> Ecosystem Trend
           </h2>
-          <p>{data.marketTrend}</p>
+          <p>{data.ecosystemTrend}</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default MarketRecommendations;
+export default ForestInsights;
